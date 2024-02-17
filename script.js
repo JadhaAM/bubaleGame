@@ -1,18 +1,23 @@
 var bubale = "";
 var hitrn = 0;
-var score=0;
+var score = 0;
+
 
 
 function incresSocre(params) {
-    score+=10;
+    score += 10;
     console.log(score);
-    document.querySelector("#score").innerHTML= score;
+    document.querySelector("#score").innerHTML = score;
+}
+function resetScore(params) {
+    score=0;
+    document.querySelector("#score").innerHTML = score;
 }
 
 function getNewHit(params) {
-     hitrn =Number(Math.floor(Math.random() * 10));
-     
-     document.querySelector("#hit").textContent = hitrn;
+    hitrn = Number(Math.floor(Math.random() * 10));
+
+    document.querySelector("#hit").textContent = hitrn;
 }
 function makeBubale(params) {
     for (let index = 0; index < 180; index++) {
@@ -24,19 +29,28 @@ function makeBubale(params) {
     document.querySelector("#pbtm").innerHTML = bubale;
 }
 
- function gameOvere(params) {
-    document.querySelector("#pbtm").innerHTML =` <h1>game over <h1>`;
-    document.querySelector("#pbtm").innerHTML =` <h1>your socre :${score} <h1>`;
-    setTimeout(()=>{
+function gameOvere(params) {
+    
+
+    document.querySelector("#pbtm").innerHTML = `
+    <div class="gameOver">
+     <h1>game over </h1>
+     <p>your socre :${score} </p>
+     
+    
+     </div>`;
+
+
+    setTimeout(() => {
         makeBubale();
         getNewHit();
         timeCount();
-        
-    },4000);
- }
+
+    }, 4000);
+}
 
 function timeCount(params) {
-    var time = 60;
+    var time = 5;
     let timedown = setInterval(() => {
         if (time > 0) {
             time--;
@@ -44,23 +58,26 @@ function timeCount(params) {
         }
         else {
             clearInterval(timedown);
-             document.querySelector("#pbtm").innerHTML = " " ;
-             gameOvere();
-            
-   
+            document.querySelector("#pbtm").innerHTML = " ";
+            gameOvere();
+            resetScore();
+
+
         }
     }, 1000)
 }
 
- document.querySelector("#pbtm")
- .addEventListener("click",(detail)=>{
-    let clickNumber= Number(detail.target.textContent);
-    if (hitrn===clickNumber) {
-        incresSocre();
-        makeBubale();
-        getNewHit();
-    }
- })
+document.querySelector("#pbtm")
+    .addEventListener("click", (detail) => {
+        let clickNumber = Number(detail.target.textContent);
+        if (hitrn === clickNumber) {
+            incresSocre();
+            makeBubale();
+            getNewHit();
+        }
+    })
+
+
 timeCount();
 makeBubale();
 getNewHit();

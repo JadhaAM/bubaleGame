@@ -31,11 +31,11 @@ html,body{
 #ptop{
     padding: 0 20%;
     width: 100%;
-    height: 4rem;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    background-color: rgb(124, 238, 101)   
+    min-height: 4rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    background-color: rgb(124, 238, 101)  ; 
+    gap: 8%;
 }
 
 .elm{
@@ -44,10 +44,13 @@ html,body{
     gap: 12%;
     width: 10%;
 }
+.elm h2{
+    font-size: 2rem;
+}
 .box{
     padding: 10px 15px;
     font-weight: 600;
-    font-size: 15px;
+    font-size: 2rem;
     background-color: #fff;
     border-radius: 5px;
 }
@@ -71,6 +74,7 @@ html,body{
     height: 50px;
    color: white;
    border-radius: 50%;
+   margin: 0.7%;
    display: flex;
    align-items: center; 
    justify-content: center;
@@ -82,15 +86,53 @@ html,body{
 .buble:hover{
     background-color: #000;
 }
+.gameOver{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 5rem 2.5rem;
+}
+.gameOver h1{
+    font-weight: 600;
+    padding: 1rem 0;
+    font-size: 3rem;
+    color: red;
+}
 
-@media scren and (max-width:550px){
-    #ptop {
-      
-        height: 6rem;
-        flex-direction: column;
-    }  
+.gameOver p{
+    font-weight: 600;
+    padding: 1rem 0;
+    font-size: 2rem;
   
-    .elm{
-        gap: 50%;
+}
+
+@media screen and (max-width:780px) {
+    #ptop{
+        grid-template-columns: 1fr 1fr;
+        padding: 8.2% 20%;
+    }
+    .elm h2{
+        font-size: 3.5rem;
+    }
+    .buble{
+        width: 11%;
+        height: 11%; 
+    }
+}
+
+@media screen and (max-width:480px) {
+    #ptop{
+        
+        grid-template-columns:  1fr;
+        padding:  8% 20%;
+       
+    }
+    .elm h2{
+        font-size: 2rem;
+    }
+    .buble{
+        width: 8%;
+        height: 8%; 
     }
 }
