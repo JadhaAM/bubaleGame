@@ -50,7 +50,7 @@ function gameOvere(params) {
 }
 
 function timeCount(params) {
-    var time = 5;
+    var time = 60;
     let timedown = setInterval(() => {
         if (time > 0) {
             time--;
