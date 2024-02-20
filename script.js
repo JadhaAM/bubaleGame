@@ -71,8 +71,8 @@ document.querySelector("#pbtm")
     .addEventListener("click", (detail) => {
         let clickNumber = Number(detail.target.textContent);
         if (hitrn === clickNumber) {
-            incresSocre();
             makeBubale();
+            incresSocre();
             getNewHit();
         }
     })
